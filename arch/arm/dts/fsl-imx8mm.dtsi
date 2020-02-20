@@ -435,6 +435,18 @@
 		status = "disabled";
 	};
 
+	uart4: serial@30A60000 {
+		compatible = "fsl,imx8mm-uart",
+			     "fsl,imx6q-uart", "fsl,imx21-uart";
+		reg = <0x0 0x30A60000 0x0 0x10000>;
+		interrupts = <GIC_SPI 29 IRQ_TYPE_LEVEL_HIGH>;
+		interrupt-parent = <&gpc>;
+		clocks = <&clk IMX8MM_CLK_UART4_ROOT>,
+			<&clk IMX8MM_CLK_UART4_ROOT>;
+		clock-names = "ipg", "per";
+		status = "disabled";
+	};
+
 	i2c1: i2c@30a20000 {
 		#address-cells = <1>;
 		#size-cells = <0>;
