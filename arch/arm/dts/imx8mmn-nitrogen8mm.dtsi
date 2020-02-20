@@ -474,8 +474,8 @@
 
 / {
 	chosen {
-		bootargs = "console=ttymxc1,115200 earlycon=ec_imx6q,0x30890000,115200";
-		stdout-patch = &uart2;
+		bootargs = "console=ttymxc3,115200 earlycon=ec_imx6q,0x30A60000,115200";
+		stdout-patch = &uart4;
 	};
 
 #if 0
@@ -1107,6 +1107,7 @@
 };
 #endif
 
+#if 0
 &uart2 { /* console */
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_uart2>;
@@ -1115,7 +1116,6 @@
 	status = "okay";
 };
 
-#if 0
 &uart3 { /* J15 */
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_uart3>;
@@ -1124,6 +1124,7 @@
 	fsl,uart-has-rtscts;
 	status = "okay";
 };
+#endif
 
 &uart4 {
 	pinctrl-names = "default";
@@ -1132,7 +1133,6 @@
 	assigned-clock-parents = <&clk IMX8MMN(CLK_24M)>;
 	status = "okay";
 };
-#endif
 
 &usbotg1 {
 	pinctrl-names = "default";
