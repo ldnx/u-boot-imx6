@@ -102,7 +102,6 @@
         (CONFIG_SYS_INIT_RAM_ADDR + CONFIG_SYS_INIT_SP_OFFSET)
 
 #define CONFIG_ENV_OVERWRITE
-// remove 5 lines for mender support
 //#define CONFIG_ENV_SIZE			0x2000
 //#if defined(CONFIG_ENV_IS_IN_MMC)
 //#define CONFIG_ENV_OFFSET               (-CONFIG_ENV_SIZE)
