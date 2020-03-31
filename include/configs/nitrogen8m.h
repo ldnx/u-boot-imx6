@@ -93,10 +93,11 @@
         (CONFIG_SYS_INIT_RAM_ADDR + CONFIG_SYS_INIT_SP_OFFSET)
 
 #define CONFIG_ENV_OVERWRITE
-#define CONFIG_ENV_SIZE			0x2000
-#define CONFIG_ENV_OFFSET               (-CONFIG_ENV_SIZE)
-#define CONFIG_SYS_MMC_ENV_DEV		0	/* USDHC1 */
-#define CONFIG_SYS_MMC_ENV_PART         1	/* mmcblk0boot0 */
+/* remove 4 line for mender support
+//#define CONFIG_ENV_SIZE			0x2000
+//#define CONFIG_ENV_OFFSET               (-CONFIG_ENV_SIZE)
+//#define CONFIG_SYS_MMC_ENV_DEV		0	/* USDHC1 */
+//#define CONFIG_SYS_MMC_ENV_PART         1	/* mmcblk0boot0 */
 
 /* Size of malloc() pool */
 #define CONFIG_SYS_MALLOC_LEN		((CONFIG_ENV_SIZE + (2*1024) + (16*1024)) * 1024)
@@ -205,14 +206,6 @@
 /* M4 specific */
 #define SYS_AUXCORE_BOOTDATA_DDR	0x80000000
 #define SYS_AUXCORE_BOOTDATA_TCM	0x007E0000
-
-/* added 6 lines for mender support */
-#ifndef MENDER_UBOOT_AUTO_CONFIGURE
-#define MENDER_UBOOT_AUTO_CONFIGURE	0
-#endif
-#ifndef BOOTENV_SIZE
-#define BOOTENV_SIZE		0x2000
-#endif
 
 #define CONFIG_EXTRA_ENV_SETTINGS \
 	"console=" BD_CONSOLE "\0" \

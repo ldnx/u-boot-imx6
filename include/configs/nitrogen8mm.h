@@ -102,12 +102,13 @@
         (CONFIG_SYS_INIT_RAM_ADDR + CONFIG_SYS_INIT_SP_OFFSET)
 
 #define CONFIG_ENV_OVERWRITE
-#define CONFIG_ENV_SIZE			0x2000
-#if defined(CONFIG_ENV_IS_IN_MMC)
-#define CONFIG_ENV_OFFSET               (-CONFIG_ENV_SIZE)
-#define CONFIG_SYS_MMC_ENV_DEV		0	/* USDHC1 */
-#define CONFIG_SYS_MMC_ENV_PART		1	/* mmcblk0boot0 */
-#elif defined(CONFIG_ENV_IS_IN_SPI_FLASH)
+// remove 5 lines for mender support
+//#define CONFIG_ENV_SIZE			0x2000
+//#if defined(CONFIG_ENV_IS_IN_MMC)
+//#define CONFIG_ENV_OFFSET               (-CONFIG_ENV_SIZE)
+//#define CONFIG_SYS_MMC_ENV_DEV		0	/* USDHC1 */
+//#define CONFIG_SYS_MMC_ENV_PART		1	/* mmcblk0boot0 */
+#if defined(CONFIG_ENV_IS_IN_SPI_FLASH)
 #define CONFIG_ENV_OFFSET		(4 * 1024 * 1024)
 #define CONFIG_ENV_SECT_SIZE		(64 * 1024)
 #define CONFIG_ENV_SPI_BUS		CONFIG_SF_DEFAULT_BUS
@@ -262,14 +263,6 @@
 #define BD_FUSE_MAC1A_STR	"fuse_mac1a=" BD_FUSE_MAC1A "\0"
 #define BD_FUSE_MAC1A_VAL_STR	"fuse_mac1a_val=" BD_FUSE_MAC1A_VAL "\0"
 #define BD_FUSE_MAC1B_STR	"fuse_mac1b=" BD_FUSE_MAC1B "\0"
-
-/* added 6 lines for mender support */
-#ifndef MENDER_UBOOT_AUTO_CONFIGURE
-#define MENDER_UBOOT_AUTO_CONFIGURE	0
-#endif
-#ifndef BOOTENV_SIZE
-#define BOOTENV_SIZE		0x2000
-#endif
 
 #define CONFIG_EXTRA_ENV_SETTINGS \
 	"console=" BD_CONSOLE "\0" \
