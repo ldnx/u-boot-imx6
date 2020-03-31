@@ -263,6 +263,14 @@
 #define BD_FUSE_MAC1A_VAL_STR	"fuse_mac1a_val=" BD_FUSE_MAC1A_VAL "\0"
 #define BD_FUSE_MAC1B_STR	"fuse_mac1b=" BD_FUSE_MAC1B "\0"
 
+/* added 6 lines for mender support */
+#ifndef MENDER_UBOOT_AUTO_CONFIGURE
+#define MENDER_UBOOT_AUTO_CONFIGURE	0
+#endif
+#ifndef BOOTENV_SIZE
+#define BOOTENV_SIZE		0x2000
+#endif
+
 #define CONFIG_EXTRA_ENV_SETTINGS \
 	"console=" BD_CONSOLE "\0" \
 	"env_dev=" __stringify(CONFIG_SYS_MMC_ENV_DEV) "\0" \

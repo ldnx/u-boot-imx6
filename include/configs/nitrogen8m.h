@@ -206,6 +206,14 @@
 #define SYS_AUXCORE_BOOTDATA_DDR	0x80000000
 #define SYS_AUXCORE_BOOTDATA_TCM	0x007E0000
 
+/* added 6 lines for mender support */
+#ifndef MENDER_UBOOT_AUTO_CONFIGURE
+#define MENDER_UBOOT_AUTO_CONFIGURE	0
+#endif
+#ifndef BOOTENV_SIZE
+#define BOOTENV_SIZE		0x2000
+#endif
+
 #define CONFIG_EXTRA_ENV_SETTINGS \
 	"console=" BD_CONSOLE "\0" \
 	"env_dev=" __stringify(CONFIG_SYS_MMC_ENV_DEV) "\0" \
