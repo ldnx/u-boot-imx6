@@ -47,6 +47,8 @@
     "bootlimit=1\0"                                                     \
     "bootcount=0\0"                                                     \
                                                                         \
+    "kernel_addr_r=0x40800000\0"                                        \
+                                                                        \
     "upgrade_available=0\0"                                             \
                                                                         \
     "mender_boot_part=" __stringify(MENDER_ROOTFS_PART_A_NUMBER) "\0"   \
