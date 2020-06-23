@@ -296,8 +296,8 @@
 			"setenv get_cmd tftp; " \
 		"fi; " \
 		"${get_cmd} ${loadaddr} ${tftpserverip}:Image; " \
-		"if ${get_cmd} ${fdt_addr} ${tftpserverip}:${fdt_file}; then " \
-			"booti ${loadaddr} - ${fdt_addr}; " \
+		"if ${get_cmd} ${fdt_addr_r} ${tftpserverip}:${fdt_file}; then " \
+			"booti ${loadaddr} - ${fdt_addr_r}; " \
 		"else " \
 			"echo WARN: Cannot load the DT; " \
 		"fi;\0" \
