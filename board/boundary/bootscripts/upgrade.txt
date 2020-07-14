@@ -66,8 +66,6 @@ if cmp.b ${a_uImage1} ${a_uImage2} ${filesize} ; then
 	exit ;
 fi
 
-# make sure we write to eMMC
-mmc dev 0
 echo "Need U-Boot upgrade" ;
 echo "Program in 5 seconds" ;
 for n in 5 4 3 2 1 ; do
