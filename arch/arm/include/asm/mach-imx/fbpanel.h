@@ -682,12 +682,12 @@ void fbp_setup_env_cmds(void);
 		.name		= _name,\
 		.refresh	= 60,\
 		.xres		= 480,\
-		.yres		= 854,\
+		.yres		= 848,\
 		.pixclock	= 1000000000000ULL/32000000,\
 		.left_margin	= 8,\
 		.right_margin	= 64,\
-		.upper_margin	= 20,\
-		.lower_margin	= 20,\
+		.upper_margin	= 23,\
+		.lower_margin	= 23,\
 		.hsync_len	= 8,\
 		.vsync_len	= 1,\
 		.sync		= FB_SYNC_EXT | FB_SYNC_CLK_LAT_FALL,\
