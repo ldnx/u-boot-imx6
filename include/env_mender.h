@@ -151,6 +151,10 @@
     "run mender_setup; "                                                \
     MENDER_BOOTARGS                                                     \
     MENDER_LOAD_KERNEL_AND_FDT                                          \
+    "fdt addr ${fdt_addr_r}; "                                          \
+    "setenv fdt_high 0xffffffff; "                                      \
+    "fdt resize 4096; "                                                 \
+    "run cmd_mipi; "                                                    \
     "${mender_boot_kernel_type} ${kernel_addr_r} - ${fdt_addr_r}; "     \
     "run mender_try_to_recover"
 
