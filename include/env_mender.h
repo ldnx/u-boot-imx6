@@ -47,6 +47,10 @@
     "bootlimit=1\0"                                                     \
     "bootcount=0\0"                                                     \
                                                                         \
+    "baudrate=115200\0"                                                 \
+                                                                        \
+    "bootargs=console=${console},${baudrate}\0"                         \
+                                                                        \
     "kernel_addr_r=0x40800000\0"                                        \
                                                                         \
     "upgrade_available=0\0"                                             \
