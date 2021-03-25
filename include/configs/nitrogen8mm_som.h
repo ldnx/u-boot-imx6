@@ -100,13 +100,8 @@
         (CONFIG_SYS_INIT_RAM_ADDR + CONFIG_SYS_INIT_SP_OFFSET)
 
 #define CONFIG_ENV_OVERWRITE
-#define CONFIG_ENV_SIZE			0x2000
 #if defined(CONFIG_ENV_IS_IN_MMC)
-#define CONFIG_ENV_OFFSET               (-CONFIG_ENV_SIZE)
-#define CONFIG_SYS_MMC_ENV_DEV		0	/* USDHC1 */
-#define CONFIG_SYS_MMC_ENV_PART		1	/* mmcblk0boot0 */
 #elif defined(CONFIG_ENV_IS_IN_SPI_FLASH)
-#define CONFIG_ENV_OFFSET		(4 * 1024 * 1024)
 #define CONFIG_ENV_SECT_SIZE		(64 * 1024)
 #define CONFIG_ENV_SPI_BUS		CONFIG_SF_DEFAULT_BUS
 #define CONFIG_ENV_SPI_CS		CONFIG_SF_DEFAULT_CS
@@ -271,7 +266,7 @@
 	"scriptaddr=" __stringify(CONFIG_LOADADDR) "\0" \
 	"fastboot_raw_partition_bootloader=0x42 0x1fae mmcpart 1\0" \
 	"fastboot_raw_partition_bootloader-env=0x1ff0 0x10 mmcpart 1\0" \
-	"fdt_addr=0x43000000\0" \
+	"fdt_addr_r=0x43000000\0" \
 	"fdt_high=0xffffffffffffffff\0" \
 	BD_FUSE1_STR \
 	BD_FUSE1_VAL_STR \
@@ -285,7 +280,7 @@
 		"dcache flush; bootaux ${m4loadaddr}\0" \
 	"m4image=m4_fw.bin\0" \
 	"m4loadaddr="__stringify(SYS_AUXCORE_BOOTDATA_TCM)"\0" \
-	"netargs=setenv bootargs console=${console},115200 root=/dev/nfs rw " \
+	"netargs=setenv bootargs console=${console},115200 rw " \
 		"ip=dhcp nfsroot=${tftpserverip}:${nfsroot},v3,tcp\0" \
 	"netboot=run netargs; " \
 		"if test -z \"${fdt_file}\" -a -n \"${soc}\"; then " \
