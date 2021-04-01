@@ -16,6 +16,17 @@
 		>;
 	};
 
+	pinctrl_reg_peripheral_power_gpio: pinctrl_reg_peripheral_power_gpiogrp {
+		fsl,pins = <
+#undef  GP_REG_PERIPHERAL_POWER_ON
+#define GP_REG_PERIPHERAL_POWER_ON	<&gpio4 30 GPIO_ACTIVE_HIGH>
+			MX8MMN(IOMUXC_SAI3_RXD_GPIO4_IO30, 0x116)
+		>;
+	};
+
+	/* conflicts with pinctrl_reg_peripheral_power_gpiogrp */
+	/delete-node/ sai3grp;
+
 	/delete-node/ i2c3a-rv4162grp;
 	/delete-node/ i2c3b-ov5640-mipigrp;
 
@@ -55,6 +66,9 @@
 / {
 	model = "Boundary Devices i.MX8MMini Nitrogen8MM Som";
 	compatible = "boundary,imx8mm-nitrogen8mm_som", "fsl,imx8mm";
+
+	/* conflicts with pinctrl_reg_peripheral_power_gpiogrp */
+	/delete-node/ sai3;
 
 #if 0
 	aliases {

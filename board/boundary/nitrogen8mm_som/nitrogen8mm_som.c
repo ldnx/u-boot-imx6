@@ -70,6 +70,9 @@ static iomux_v3_cfg_t const init_pads[] = {
 #define GP_CSI1_MIPI_RESET	IMX_GPIO_NR(1, 9)
 	IOMUX_PAD_CTRL(GPIO1_IO09__GPIO1_IO9, 0x101),
 
+#define GP_REG_PERIPHERAL_POWER_ON IMX_GPIO_NR(4, 30)
+	IOMUX_PAD_CTRL(SAI3_RXD__GPIO4_IO30, 0x116),
+
 	/* pcie */
 #define GP_PCIE0_RESET		IMX_GPIO_NR(4, 31)
 	IOMUX_PAD_CTRL(SAI3_TXFS__GPIO4_IO31, 0x100),
@@ -188,9 +191,11 @@ int board_init(void)
 	gpio_request(GP_LTK08_MIPI_EN, "lkt08_mipi_en");
 	gpio_request(GPIRQ_CSI1_TC3587, "csi1_mipi_pwdn");
 	gpio_request(GP_CSI1_MIPI_RESET, "csi1_mipi_reset");
+	gpio_request(GP_REG_PERIPHERAL_POWER_ON, "reg_peripheral_power_on");
 	gpio_direction_output(GP_GT911_RESET, 0);
 	gpio_direction_input(GPIRQ_CSI1_TC3587);
 	gpio_direction_output(GP_CSI1_MIPI_RESET, 0);
+	gpio_direction_output(GP_REG_PERIPHERAL_POWER_ON, 1);
 #ifdef CONFIG_MXC_SPI
 	setup_spi();
 #endif
